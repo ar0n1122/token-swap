@@ -1,6 +1,7 @@
 import { randomBytes } from "node:crypto";
 import * as anchor from "@coral-xyz/anchor";
-import { BN, type Program } from "@coral-xyz/anchor";
+import { Program } from "@coral-xyz/anchor";
+import BN from "bn.js";
 import {
   TOKEN_2022_PROGRAM_ID,
   type TOKEN_PROGRAM_ID,
@@ -31,7 +32,7 @@ const getRandomBigNumber = (size = 8) => {
   return new BN(randomBytes(size));
 };
 
-describe("swap", async () => {
+describe("swap", () => {
   // Use the cluster and the keypair from Anchor.toml
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(provider);
